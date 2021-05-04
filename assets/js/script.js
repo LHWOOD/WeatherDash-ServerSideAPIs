@@ -40,6 +40,13 @@ function getApi(city) {
       infoDump.appendChild(humidity);
     });
 }
+//need weather icons
+
+//need 5 day forecast
+
+//need date info
+
+//need to style style style
 
 //event listener for form
 userForm.addEventListener("submit", inputHandler);
