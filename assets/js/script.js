@@ -8,12 +8,11 @@ var inputHandler = function (event) {
   event.preventDefault();
   var city = cityInput.value;
   console.log(city);
-  getApi();
+  getApi(city);
 };
 
 // function fetch API info
 function getApi(city) {
-  var city = cityInput.value;
   var requestUrl =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
@@ -24,27 +23,33 @@ function getApi(city) {
     })
     .then(function (data) {
       console.log(data);
+
       var cityName = document.createElement("h1");
       var temp = document.createElement("h4");
       var windSpeed = document.createElement("h4");
       var humidity = document.createElement("h4");
-
+      //moment
       cityName.textContent = data.name;
       temp.textContent = "Temp: " + data.main.temp + " °F";
       windSpeed.textContent = "Wind: " + data.wind.speed + " MPH";
       humidity.textContent = "Humidity: " + data.main.humidity + " %";
-
+      //appendmoment
+      infoDump.classList.add("test");
       infoDump.appendChild(cityName);
       infoDump.appendChild(temp);
       infoDump.appendChild(windSpeed);
       infoDump.appendChild(humidity);
     });
 }
+
+// infoDump.remove();
 //need weather icons
 
 //need 5 day forecast
 
 //need date info
+
+//function city button local storage set/get
 
 //need to style style style
 
