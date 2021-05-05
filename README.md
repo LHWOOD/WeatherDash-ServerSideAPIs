@@ -10,9 +10,7 @@ No installation steps are required for this web application to run.
 
 ## Usage
 
-    ```md
-    ![Screenshot](./assets/images/Screenshot.png)
-    ```
+![screenshot](assets/images/Screenshot.png)
 
 Link to webpage: https://lhwood.github.io/WeatherDash-ServerSideAPIs/
 
