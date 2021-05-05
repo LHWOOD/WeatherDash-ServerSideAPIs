@@ -1,6 +1,14 @@
 .test {
-  margin: 25px;
+  margin: 10px;
   padding-left: 20px;
-  padding-right: 600px;
+  padding-right: 630px;
+  border: solid black 0.5px;
+}
+
+.test2 {
+  border: solid black 0.5px;
+}
+
+.test3 {
   border: solid rgba(224, 223, 223, 0.856) 3px;
 }

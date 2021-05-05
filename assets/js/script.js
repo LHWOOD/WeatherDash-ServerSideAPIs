@@ -25,20 +25,26 @@ function getApi(city) {
       return response.json();
     })
     .then(function (data) {
-      // console.log(data);
+      console.log(data);
 
       var cityName = document.createElement("h1");
+      var weatherIcon = document.createElement("img");
       var temp = document.createElement("h4");
       var windSpeed = document.createElement("h4");
       var humidity = document.createElement("h4");
       //moment
       cityName.textContent = data.name;
+      weatherIcon.setAttribute(
+        "src",
+        "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+      );
       temp.textContent = "Temp: " + data.main.temp + " °F";
       windSpeed.textContent = "Wind: " + data.wind.speed + " MPH";
-      humidity.textContent = "Humidity: " + data.main.humidity + " %";
+      humidity.textContent = "Humidity: " + data.main.humidity * 0.1 + " %";
       //appendmoment
       infoDump.classList.add("test");
       infoDump.appendChild(cityName);
+      infoDump.appendChild(weatherIcon);
       infoDump.appendChild(temp);
       infoDump.appendChild(windSpeed);
       infoDump.appendChild(humidity);
@@ -56,26 +62,57 @@ function getFive(city) {
     })
     .then(function (data) {
       console.log(data);
-
-      var week = document.createElement("h2");
-      var date = document.createElement("h5");
+      //day1 create
+      var date = document.createElement("h4");
+      var weatherIcon = document.createElement("img");
       var tura = document.createElement("h5");
       var viento = document.createElement("h5");
       var humedad = document.createElement("h5");
-
-      // week.textContent = "5-Day Forecast: ";
-
-      date.textContent = data.list[0].dt_txt;
+      //day2 create
+      var a = document.createElement("h4");
+      var b = document.createElement("img");
+      var c = document.createElement("h5");
+      var d = document.createElement("h5");
+      var e = document.createElement("h5");
+      //day1 text
+      date.textContent =
+        " (" + moment(data.list[0].dt_txt).format("MMM D, YYYY") + ") ";
+      weatherIcon.setAttribute(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          data.list[0].weather[0].icon +
+          ".png"
+      );
       tura.textContent = "Temp: " + data.list[0].main.temp + " °F";
       viento.textContent = "Wind: " + data.list[0].wind.speed + " MPH";
-      humedad.textContent = "Humidity: " + data.list[0].main.humidity + " %";
-
-      // fiveDay.appendChild(week);
-
+      humedad.textContent =
+        "Humidity: " + data.list[0].main.humidity * 0.1 + " %";
+      //day2 text
+      a.textContent =
+        " (" + moment(data.list[8].dt_txt).format("MMM D, YYYY") + ") ";
+      b.setAttribute(
+        "src",
+        "http://openweathermap.org/img/w/" +
+          data.list[8].weather[0].icon +
+          ".png"
+      );
+      c.textContent = "Temp: " + data.list[8].main.temp + " °F";
+      d.textContent = "Wind: " + data.list[8].wind.speed + " MPH";
+      e.textContent = "Humidity: " + data.list[8].main.humidity * 0.1 + " %";
+      //day1 append
+      fiveDay.classList.add("test2");
+      fiveDay.appendChild(dayOne);
       dayOne.appendChild(date);
+      dayOne.appendChild(weatherIcon);
       dayOne.appendChild(tura);
       dayOne.appendChild(viento);
       dayOne.appendChild(humedad);
+      //day2 append
+      dayOne.appendChild(a);
+      dayOne.appendChild(b);
+      dayOne.appendChild(c);
+      dayOne.appendChild(d);
+      dayOne.appendChild(e);
     });
 }
 // infoDump.remove();

@@ -2,7 +2,7 @@
 
 ## Description
 
-This was a homework assignment to creat a weather dashboard that displayed weather attributes for a user's selected city. It was build with HTML, CSS, and JS while also incorperation 3rd party APIs.
+This was a homework assignment to creat a weather dashboard that displayed weather attributes for a user's selected city. It was build with HTML, CSS, and JS while also incorperating server-side party APIs.
 
 ## Installation
 
